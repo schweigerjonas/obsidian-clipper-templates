@@ -1,2 +1,9 @@
-# obsidian-clipper-templates
-Templates for extracting data from websites using Obsidian Web Clipper.
+Templates for extracting data from websites using the [Obsidian Web Clipper](https://obsidian.md/clipper) browser extension.
+
+## Compatibility
+
+The templates are designed to work with the vault structure as described in [Steph Ango's blog](https://stephango.com/vault).
+
+## Templates
+
+- 
