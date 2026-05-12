@@ -6,4 +6,4 @@ The templates are designed to work with the vault structure as described in [Ste
 
 ## Templates
 
-- 
+- [Reddit](/templates/reddit-clipper.json)
