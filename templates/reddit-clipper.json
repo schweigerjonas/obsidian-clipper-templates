@@ -1,0 +1,48 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Reddit",
+	"behavior": "create",
+	"noteContentFormat": "{{content}}",
+	"properties": [
+		{
+			"name": "categories",
+			"value": "[[Clippings]]",
+			"type": "multitext"
+		},
+		{
+			"name": "title",
+			"value": "{{title}}",
+			"type": "text"
+		},
+		{
+			"name": "source",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "published",
+			"value": "{{selectorHtml:time?datetime|first|date:\\\"YYYY-MM-DD HHmm\\\"}}",
+			"type": "date"
+		},
+		{
+			"name": "author",
+			"value": "{{selector:.author-name > span}}",
+			"type": "multitext"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "tags",
+			"value": "clippings, reddit",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"/^https:\\/\\/www\\.reddit\\.com\\/r\\/[A-Za-z]+\\/comments\\/.*$/"
+	],
+	"noteNameFormat": "{{title}}",
+	"path": "Clippings"
+}
