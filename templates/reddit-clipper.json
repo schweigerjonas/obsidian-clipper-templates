@@ -2,7 +2,7 @@
 	"schemaVersion": "0.1.0",
 	"name": "Reddit",
 	"behavior": "create",
-	"noteContentFormat": "{{content}}",
+	"noteContentFormat": "{% if selector:shreddit-comment[is-current-permalink] %}\n# Highlight\n\n{% for section in selectorHtml:shreddit-comment[is-current-permalink] [slot=\"comment\"] > div > * %}\n{% if section == selectorHtml:shreddit-comment[is-current-permalink] [slot=\"comment\"] > div > pre %}\n```\n{{section|markdown}}\n```\n{% else %}\n{{section|markdown}}\n{% endif %}\n\n{% endfor %}\n\n{% endif %}",
 	"properties": [
 		{
 			"name": "categories",
