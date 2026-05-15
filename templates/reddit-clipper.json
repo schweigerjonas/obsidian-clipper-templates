@@ -2,7 +2,7 @@
 	"schemaVersion": "0.1.0",
 	"name": "Reddit",
 	"behavior": "create",
-	"noteContentFormat": "{% if selector:shreddit-comment[is-current-permalink] %}\n# Highlight\n\n{% for section in selectorHtml:shreddit-comment[is-current-permalink] [slot=\"comment\"] > div > * %}\n{% if section == selectorHtml:shreddit-comment[is-current-permalink] [slot=\"comment\"] > div > pre %}\n```\n{{section|markdown}}\n```\n{% else %}\n{{section|markdown}}\n{% endif %}\n\n{% endfor %}\n\n{% endif %}",
+	"noteContentFormat": "{% set post_content = selectorHtml:shreddit-post-text-body [property=\"schema:articleBody\"] > * %}\n{% set post_content_code = selectorHtml:shreddit-post-text-body [property=\"schema:articleBody\"] > pre %}\n{% set permalink_content = selectorHtml:shreddit-comment[is-current-permalink] [slot=\"comment\"] > div > * %}\n{% set permalink_content_code = selectorHtml:shreddit-comment[is-current-permalink] [slot=\"comment\"] > div > pre %}\n# Post\n\n{% for section in post_content %}\n{% if section == post_content_code %}\n```\n{{section|markdown}}\n```\n{% else %}\n{{section|markdown}}\n{% endif %}\n{% endfor %}\n\n{% if selector:shreddit-comment[is-current-permalink] %}\n# Highlight\n\n{% for section in permalink_content  %}\n{% if section == permalink_content_code  %}\n```\n{{section|markdown}}\n```\n{% else %}\n{{section|markdown}}\n{% endif %}\n{% endfor %}\n{% endif %}",
 	"properties": [
 		{
 			"name": "categories",
